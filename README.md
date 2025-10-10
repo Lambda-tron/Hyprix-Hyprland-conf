@@ -10,7 +10,7 @@ It features **Neovim (Lazy + Everblush + nvim-tree)**, **Kitty**, **Hyprlock**, 
 
 | Hyprland Desktop | Hyprlock | Rofi |
 |:----------------:|:---------:|:----:|
-| ![Desktop](previews/preview.png) | ![Hyprlock](previews/hyprlock.png) | ![Rofi](previews/rofi.png) |
+| ![Desktop](previews/preview1.png) | ![Hyprlock](previews/hyprlock.png) | ![Rofi](previews/rofi.png) |
 
 ---
 
