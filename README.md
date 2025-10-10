@@ -5,14 +5,15 @@ Built for Arch Linux users who love a clean, futuristic, and terminal-centric en
 It features **Neovim (Lazy + Everblush + nvim-tree)**, **Kitty**, **Hyprlock**, **Rofi**, and **Neofetch** — all working together for a fast and visually consistent workflow.
 
 ---
-
 ## 🖼️ Preview
 
-| Hyprland Desktop | Hyprlock | Rofi |
-|:----------------:|:---------:|:----:|
-| ![Desktop](previews/preview.png) | ![Hyprlock](previews/hyprlock.png) | ![Rofi](previews/rofi.png) |
+| Desktop 1 | Desktop 2 | Neovim |
+|:---------:|:---------:|:------:|
+| ![Desktop 1](previews/desktop-1.png) | ![Desktop 2](previews/desktop-2.png) | ![Neovim](previews/neovim.png) |
 
----
+| Hyprlock | Rofi |
+|:--------:|:----:|
+| ![Hyprlock](previews/hyprlock.png) | ![Rofi](previews/rofi.png) |
 
 # 🧩 System Overview
 
