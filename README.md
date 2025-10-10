@@ -10,7 +10,6 @@ It features **Neovim (Lazy + Everblush + nvim-tree)**, **Kitty**, **Hyprlock**, 
 | Desktop 1 | Desktop 2 | Neovim |
 |:---------:|:---------:|:------:|
 | ![Desktop 1](previews/desktop-1.png) | ![Desktop 2](previews/desktop-2.png) | ![Neovim](previews/neovim.png) |
-
 | Hyprlock | Rofi |
 |:--------:|:----:|
 | ![Hyprlock](previews/hyprlock.png) | ![Rofi](previews/rofi.png) |
