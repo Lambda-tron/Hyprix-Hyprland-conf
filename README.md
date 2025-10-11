@@ -1,7 +1,7 @@
-# 💚 Matrix Minimal — Hyprland Theme
+# Minimal Hyprland Theme
 
 A clean, dark, **Matrix-style Hyprland** setup for Wayland users.  
-It combines a futuristic green aesthetic with modern Linux tools like **Kitty**, **Rofi**, **Hyprlock**, and **Neovim (Lazy)**.  
+With modern Linux tools like **Kitty**, **Rofi**, **Hyprlock**, and **Neovim (Lazy)**.  
 
 ---
 
