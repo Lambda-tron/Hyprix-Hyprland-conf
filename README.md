@@ -3,6 +3,8 @@
 A clean, dark, **Matrix-style Hyprland** setup for Wayland users.  
 With modern Linux tools like **Kitty**, **Rofi**, **Hyprlock**, and **Neovim (Lazy)**.  
 
+WARNING > Three things you have to set up yourself. the monitors setup in the hyprland.conf and the font size in kitty.conf, and the keyboard layout also in hyprland.conf
+
 ---
 
 ## 🖼️ Screenshots
