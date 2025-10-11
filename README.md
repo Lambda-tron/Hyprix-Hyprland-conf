@@ -1,94 +1,150 @@
-# ArchTheme
+# 💚 Matrix Minimal — Hyprland Theme
 
-This is a **Wayland + Hyprland theme** designed to give a **retro Matrix-style aesthetic** to your Linux desktop.  
-It combines minimalism with a tiled window manager layout, green-on-black vibes, and smooth animations — perfect for those who love a cyberpunk terminal look.
-
----
-
-## Preview
-
-| Screenshot 1 | Screenshot 2 | 
-|:-------------:|:-------------:|
-| ![Screenshot 1](previews/preview3.png) | ![Screenshot 2](previews/preview4.png)
-
-# 🧩 System Setup (Wayland + Hyprland + Kitty)
-
-This setup assumes a fresh Arch-based system.  
-You’ll install **Wayland**, **Hyprland**, and **Kitty**, along with useful tools and configs for a complete modern environment.
+A clean, dark, **Matrix-style Hyprland** setup for Wayland users.  
+It combines a futuristic green aesthetic with modern Linux tools like **Kitty**, **Rofi**, **Hyprlock**, and **Neovim (Lazy)**.  
 
 ---
 
-## 🌿 Base System Installation
+## 🖼️ Screenshots
 
-Install all essential packages for Wayland, Hyprland, and Kitty:
+| Desktop 1 | Desktop 2 |
+|:----------:|:----------:|
+| ![Desktop 1](previews/desktop1.png) | ![Desktop 2](previews/desktop2.png) |
+
+| Rofi Menu | Hyprlock |
+|:----------:|:----------:|
+| ![Rofi](previews/rofi.png) | ![Hyprlock](previews/hyprlock.png) |
+
+---
+
+## ⚙️ Requirements
+
+You need a **Wayland compositor** with **Hyprland** and its essentials.
+
+### 🧱 Required packages (Arch Linux)
 
 ```bash
-sudo pacman -S --needed \
-  hyprland waybar rofi kitty \
-  ttf-jetbrains-mono-nerd \
-  git curl
+sudo pacman -S --needed hyprland waybar rofi-wayland hyprlock hyprshot kitty neovim \
+xdg-desktop-portal-hyprland wl-clipboard grim slurp wget unzip git curl ripgrep fd
 ```
-## 🎵 Spotify CLI Setup
 
-1. **Install the Spotify daemon (`spotifyd`)** — runs Spotify in the background:
-   ```bash
-   sudo pacman -S spotifyd
-   ```
-
-2. **Install the Spotify terminal client (`spotify-player`)**:
-   ```bash
-   sudo pacman -S spotify-player
-   ```
-
-   > The `spotify-player` client automatically follows your terminal’s color scheme.  
-   > For example, if your **Kitty** terminal uses a greenish theme, the player will match it automatically.
-
-3. **Enable and start the Spotify daemon:**
-   ```bash
-   systemctl --user enable spotifyd
-   systemctl --user start spotifyd
-   ```
+*(For Debian/Ubuntu users, equivalent packages exist — but this setup is built and tested for Arch.)*
 
 ---
 
-## 💻 Neovim + LunarVim Setup
+## 🧩 Installing the Nerd Font
 
-1. **Install Neovim and required dependencies:**
-   ```bash
-   sudo pacman -S --needed neovim git curl nodejs npm python-pynvim ripgrep fd clang
-   ```
+This theme uses **IBM 3270 Nerd Font** for its retro-tech look.  
+Run these commands to download, install, and cache it:
 
-2. **Install LunarVim:**
-   ```bash
-   bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/master/utils/installer/install.sh)
-   ```
-
-3. **Add LunarVim to your PATH (if not already):**
-   ```bash
-   echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
-   source ~/.bashrc
-   ```
-
-4. **Run LunarVim for the first time:**
-   ```bash
-   lvim
-   ```
-
----
-
-## ⚙️ Final Step — Apply Configurations
-
-After installing everything, run the provided setup script:
 ```bash
-./setup.sh
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/3270.zip -O /tmp/3270.zip && \
+mkdir -p ~/.local/share/fonts/NerdFonts && \
+unzip -o /tmp/3270.zip -d ~/.local/share/fonts/NerdFonts && \
+fc-cache -fv
 ```
 
-This script will:
-- Copy all configuration files to their correct locations inside `~/.config`
-- Apply your pre-defined settings for **Hyprland**, **Kitty**, **LunarVim**, and other tools
+To verify:
+```bash
+fc-list | grep 3270
+```
 
 ---
 
-✅ Once `setup.sh` finishes, your system will be fully configured and ready to use:  
-Spotify runs in the background, the CLI player matches your Kitty theme, and LunarVim is installed with your custom configuration.
+## 🎨 Installing the Theme
 
+Clone this repository and copy the configs to your user config folder:
+
+```bash
+git clone https://github.com/YOUR_USERNAME/Matrix-Minimal-Hyprland.git
+cd Matrix-Minimal-Hyprland
+cp -r * ~/.config/
+```
+
+Now log out and start **Hyprland** again to apply everything.  
+You’ll get the Matrix-style blur, neon borders, and transparent Rofi menu.
+
+---
+
+## 🧠 Optional: CLI Spotify Experience
+
+To complement the minimalist theme, you can add a terminal Spotify setup:
+
+```bash
+yay -S spotifyd spotify-player
+```
+
+Then run:
+```bash
+spotify_player
+```
+
+This gives you a **clean command-line Spotify interface** that fits perfectly with the retro-terminal aesthetic.
+
+---
+
+## 🧮 Setting up Neovim (with Lazy)
+
+If you want to extend this theme into **Neovim** for coding or writing, follow these steps 👇  
+
+### 1️⃣ Install Neovim
+```bash
+sudo pacman -S neovim git
+```
+
+### 2️⃣ Create configuration folders
+```bash
+mkdir -p ~/.config/nvim/lua
+```
+
+### 3️⃣ Install Lazy.nvim
+```bash
+git clone https://github.com/folke/lazy.nvim ~/.local/share/nvim/lazy/lazy.nvim
+```
+
+### 4️⃣ Create your `~/.config/nvim/init.lua`
+```lua
+vim.g.mapleader = " "
+vim.opt.termguicolors = true
+vim.opt.number = true
+vim.opt.relativenumber = true
+
+-- Lazy setup
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+vim.opt.rtp:prepend(lazypath)
+
+require("lazy").setup({
+  { "Everblush/nvim", name = "everblush", lazy = false, priority = 1000 },
+  { "nvim-tree/nvim-tree.lua", dependencies = { "nvim-tree/nvim-web-devicons" } },
+})
+
+vim.cmd.colorscheme("everblush")
+
+-- Follow terminal background
+vim.api.nvim_create_autocmd("ColorScheme", {
+  callback = function()
+    for _, g in ipairs({ "Normal", "NormalNC", "NormalFloat", "SignColumn", "LineNr", "EndOfBuffer" }) do
+      vim.cmd(("hi %s guibg=NONE ctermbg=NONE"):format(g))
+    end
+  end,
+})
+```
+
+### 5️⃣ Run Neovim
+```bash
+nvim
+```
+
+Lazy.nvim will automatically install and set up everything on the first launch.
+
+---
+
+## ✅ Finishing Up
+
+Once everything is installed:
+- Fonts are cached
+- Configs are copied
+- Neovim is set up
+- Spotify CLI is ready
+
+Reboot or restart your Hyprland session to enjoy your **Matrix Minimal Desktop** 💚

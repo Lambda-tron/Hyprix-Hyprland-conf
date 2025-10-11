@@ -1,13 +1,5 @@
 return {
   {
-    "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      vim.cmd.colorscheme("tokyonight")
-    end,
-  },
-  {
     "nvim-tree/nvim-tree.lua",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
@@ -27,5 +19,13 @@ return {
     vim.cmd("colorscheme everblush")
   end,
 },
+{
+ "vhyrro/luarocks.nvim",
+ priority = 1001, -- this plugin needs to run before anything else
+ opts = {
+ rocks = { "magick" },
+ },
+}
+
 
 }
